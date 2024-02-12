@@ -1,0 +1,31 @@
+{
+    "private": true,
+    "name": "@types/hubs",
+    "version": "0.0.1",
+    "projects": [
+        "https://github.com/mozilla/hubs"
+    ],
+    "exports": {
+        "./types/*": "./types/*"
+    },
+    "dependencies": {
+        "@types/three": "^0.141.0",
+        "bitecs": "github:mozilla/bitECS#hubs-patches",
+        "event-target-shim": "^3.0.1",
+        "postprocessing": "^6.28.7",
+        "aframe": "github:mozillareality/aframe#hubs/master",
+        "@formatjs/intl-locale": "^2.4.13",
+        "eventemitter3": "^4.0.3"
+    },
+    "devDependencies": {
+        "@types/hubs": "workspace:."
+    },
+    "author": "Manuel Martin",
+    "owners": [
+        {
+        "name": "Manuel Martin",
+        "githubUsername": "keianhzo"
+        }
+    ],
+    "license": "MPL-2.0"
+}

@@ -1,0 +1,1 @@
+export function getAbsoluteHref(baseUrl: string, relativeUrl: string): string;
