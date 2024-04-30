@@ -1,64 +1,90 @@
+import { HubsWorld } from "./app";
+import { EntityID } from "./entity";
+
 export enum COLLISION_LAYERS {
-    ALL = -1,
-    NONE = 0,
-    INTERACTABLES = 1 << 0,
-    ENVIRONMENT = 1 << 1,
-    AVATAR = 1 << 2,
-    HANDS = 1 << 3,
-    MEDIA_FRAMES = 1 << 4,
-    // @TODO we should split these "sets" off into something other than COLLISION_LAYERS or at least name
-    // them differently to indicate they are a combination of multiple bits
-    DEFAULT_INTERACTABLE = INTERACTABLES | ENVIRONMENT | AVATAR | HANDS | MEDIA_FRAMES,
-    UNOWNED_INTERACTABLE = INTERACTABLES | HANDS | MEDIA_FRAMES,
-    DEFAULT_SPAWNER = INTERACTABLES | HANDS
+  ALL = -1,
+  NONE = 0,
+  INTERACTABLES = 1 << 0,
+  ENVIRONMENT = 1 << 1,
+  AVATAR = 1 << 2,
+  HANDS = 1 << 3,
+  MEDIA_FRAMES = 1 << 4,
+  // @TODO we should split these "sets" off into something other than COLLISION_LAYERS or at least name
+  // them differently to indicate they are a combination of multiple bits
+  DEFAULT_INTERACTABLE = INTERACTABLES |
+    ENVIRONMENT |
+    AVATAR |
+    HANDS |
+    MEDIA_FRAMES,
+  UNOWNED_INTERACTABLE = INTERACTABLES | HANDS | MEDIA_FRAMES,
+  DEFAULT_SPAWNER = INTERACTABLES | HANDS,
 }
-  
+
 export enum Shape {
-    BOX = 0,
-    CYLINDER,
-    SPHERE,
-    CAPSULE,
-    CONE,
-    HULL,
-    HACD,
-    VHACD,
-    MESH,
-    HEIGHTFIELD
+  BOX = 0,
+  CYLINDER,
+  SPHERE,
+  CAPSULE,
+  CONE,
+  HULL,
+  HACD,
+  VHACD,
+  MESH,
+  HEIGHTFIELD,
 }
-  
+
 export enum Fit {
-    ALL = 0,
-    MANUAL
+  ALL = 0,
+  MANUAL,
 }
 
 export enum Type {
-    STATIC = 0,
-    DYNAMIC,
-    KINEMATIC
-} 
+  STATIC = 0,
+  DYNAMIC,
+  KINEMATIC,
+}
 
 export enum ActivationState {
-    ACTIVE_TAG = 0,
-    ISLAND_SLEEPING = 1,
-    WANTS_DEACTIVATION = 2,
-    DISABLE_DEACTIVATION = 3,
-    DISABLE_SIMULATION = 4
+  ACTIVE_TAG = 0,
+  ISLAND_SLEEPING = 1,
+  WANTS_DEACTIVATION = 2,
+  DISABLE_DEACTIVATION = 3,
+  DISABLE_SIMULATION = 4,
 }
 
 export interface RigidBodyParams {
-    type: Type;
-    mass: number;
-    gravity: [number, number, number];
-    linearDamping: number;
-    angularDamping: number;
-    linearSleepingThreshold: number;
-    angularSleepingThreshold: number;
-    angularFactor: [number, number, number];
-    activationState: ActivationState;
-    emitCollisionEvents: boolean;
-    disableCollision: boolean;
-    collisionGroup: number;
-    collisionMask: number;
-    scaleAutoUpdate: boolean;
-  }
-  
+  type: Type;
+  mass: number;
+  gravity: [number, number, number];
+  linearDamping: number;
+  angularDamping: number;
+  linearSleepingThreshold: number;
+  angularSleepingThreshold: number;
+  angularFactor: [number, number, number];
+  activationState: ActivationState;
+  emitCollisionEvents: boolean;
+  disableCollision: boolean;
+  collisionGroup: number;
+  collisionMask: number;
+  scaleAutoUpdate: boolean;
+}
+
+export type BodyParams = {
+  type: string;
+  mass: number;
+  gravity: { x: number; y: number; z: number };
+  linearDamping: number;
+  angularDamping: number;
+  linearSleepingThreshold: number;
+  angularSleepingThreshold: number;
+  angularFactor: { x: number; y: number; z: number };
+  activationState: string;
+  emitCollisionEvents: boolean;
+  disableCollision: boolean;
+  collisionFilterGroup: number;
+  collisionFilterMask: number;
+  scaleAutoUpdate: boolean;
+};
+
+export function getBodyFromRigidBody(eid: number): BodyParams;
+export function updatePrevBodyType(world: HubsWorld, eid: EntityID): void;

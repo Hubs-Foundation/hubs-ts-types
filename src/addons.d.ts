@@ -1,9 +1,16 @@
 import { IComponent } from "bitecs";
-import { App } from "./app";
+import { App, HubsWorld } from "./app";
 import { InflatorConfigT } from "./component";
 import { ChatCommandCallbackFn } from "./message-dispatch";
 import { NetworkSchemaT } from "./networking";
 import { PrefabDefinitionT, PrefabNameT } from "./prefabs";
+import {
+  GLTFLoaderPlugin,
+  GLTFParser,
+} from "three/examples/jsm/loaders/GLTFLoader";
+import { Object3D } from "three";
+import { EntityID } from "./entity";
+import { React } from "react";
 
 export enum SystemOrderE {
   Setup = 0,
@@ -64,3 +71,16 @@ export interface InternalAddonConfigT {
 type AddonConfigT = Omit<InternalAddonConfigT, "enabled" | "config">;
 
 export function registerAddon(name: string, cb: AddonConfigT): void;
+
+export type GLTFLinkResolverFn = (
+  world: HubsWorld,
+  model: Object3D,
+  rootEid: EntityID,
+  idx2eid: Map<number, EntityID>
+) => void;
+export type GLTFParserCallbackFn = (parser: GLTFParser) => GLTFLoaderPlugin;
+export function registerGLTFLoaderPlugin(callback: GLTFParserCallbackFn): void;
+export function registerGLTFLinkResolver(resolver: GLTFLinkResolverFn): void;
+export function registerECSSidebarSection(
+  section: (world: HubsWorld, selectedObj: Object3D) => React.JSX.Element
+): void;

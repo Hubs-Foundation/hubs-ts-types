@@ -5,17 +5,19 @@
     "projects": [
         "https://github.com/mozilla/hubs"
     ],
-    "exports": {
-        "./types/*": "./types/*"
-    },
+    "type": "module",
+    "types": "index.d.ts",
     "dependencies": {
+        "@types/react": "^18.2.0",
         "@types/three": "^0.141.0",
         "bitecs": "github:mozilla/bitECS#hubs-patches",
         "event-target-shim": "^3.0.1",
         "postprocessing": "^6.28.7",
         "aframe": "github:mozillareality/aframe#hubs/master",
+        "networked-aframe": "github:mozillareality/networked-aframe#6093c3a0b2867a9e141cd5c19f7d13dfa7c38479",
         "@formatjs/intl-locale": "^2.4.13",
-        "eventemitter3": "^4.0.3"
+        "eventemitter3": "^4.0.3",
+        "troika-three-text": "^0.45.0"
     },
     "devDependencies": {
         "@types/hubs": "workspace:."
@@ -23,8 +25,8 @@
     "author": "Manuel Martin",
     "owners": [
         {
-        "name": "Manuel Martin",
-        "githubUsername": "keianhzo"
+            "name": "Manuel Martin",
+            "githubUsername": "keianhzo"
         }
     ],
     "license": "MPL-2.0"

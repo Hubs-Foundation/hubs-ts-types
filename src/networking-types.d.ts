@@ -7,6 +7,7 @@ export interface CreateMessageData {
 }
 export type ClientID = string;
 export type NetworkID = string;
+export type CreatorID = NetworkID | ClientID;
 export type StringID = number;
 export interface CreateMessage {
   version: 1;

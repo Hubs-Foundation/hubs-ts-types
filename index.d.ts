@@ -1,3 +1,2 @@
-export * from './src/hubs';
-
-export as namespace Hubs;
+export * from "./src";
+export * from "./three";
