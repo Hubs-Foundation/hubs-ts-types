@@ -16,12 +16,9 @@ export enum SystemOrderE {
   Setup = 0,
   PrePhysics = 100,
   PostPhysics = 200,
-  MatricesUpdate = 300,
+  BeforeMatricesUpdate = 300,
   BeforeRender = 400,
-  Render = 500,
-  AfterRender = 600,
-  PostProcessing = 700,
-  TearDown = 800,
+  AfterRender = 500,
 }
 export interface SystemT {
   (app: App): void;
