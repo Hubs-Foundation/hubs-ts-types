@@ -199,3 +199,4 @@ export interface BitComponentsT {
 }
 export const bitComponents: BitComponentsT;
 export const MediaRoot: Component;
+export const SceneRoot: Component;
