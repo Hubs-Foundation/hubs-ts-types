@@ -28,4 +28,5 @@ export * from "./media-video.js";
 export * from "./material.js";
 export * from "./utils.js";
 export * from "./text.js";
+export * from "./preferences.js";
 export as namespace Hubs;

@@ -17,4 +17,8 @@ export interface Store extends EventTarget {
   update(newState: {}, mergeOpts?: {}): {};
   getEmbedTokenForHub(hub: any): void;
   get schema(): any;
+  addEventListener(key: string, callback: () => void): void;
+  removeEventListener(key: string, callback: () => void): void;
 }
+
+export function getStore(): Store;
