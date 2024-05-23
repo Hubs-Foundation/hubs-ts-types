@@ -29,4 +29,5 @@ export * from "./material.js";
 export * from "./utils.js";
 export * from "./text.js";
 export * from "./preferences.js";
+export * from "./texture.js";
 export as namespace Hubs;
