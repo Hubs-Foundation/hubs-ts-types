@@ -200,3 +200,9 @@ export interface BitComponentsT {
 export const bitComponents: BitComponentsT;
 export const MediaRoot: Component;
 export const SceneRoot: Component;
+export const LightTag: Component;
+export const AmbientLightTag: Component;
+export const DirectionalLight: Component;
+export const HemisphereLightTag: Component;
+export const PointLightTag: Component;
+export const SpotLightTag: Component;
