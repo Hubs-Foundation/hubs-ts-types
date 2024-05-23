@@ -1,8 +1,7 @@
 import { Component, ComponentType, IComponent } from "bitecs";
-import { HubsWorld } from "../index";
+import { EnvironmentSettingsT, HubsWorld, Sky } from "../index";
 import { EntityDef, EntityID } from "./entity";
-import { Object3D, Material, Texture } from "three";
-import * as bitecs from "bitecs";
+import { Object3D, Material, Texture, Color } from "three";
 
 export const $isStringType: symbol;
 
@@ -206,3 +205,6 @@ export const DirectionalLight: Component;
 export const HemisphereLightTag: Component;
 export const PointLightTag: Component;
 export const SpotLightTag: Component;
+export const EnvironmentSettings: Component & {
+  map: Map<number, EnvironmentSettingsT>;
+};
