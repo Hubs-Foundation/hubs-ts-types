@@ -3,7 +3,7 @@
     "name": "@types/hubs",
     "version": "0.0.2",
     "projects": [
-        "https://github.com/mozilla/hubs"
+        "https://github.com/Hubs-Foundation/hubs"
     ],
     "type": "module",
     "types": "index.d.ts",
