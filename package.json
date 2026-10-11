@@ -22,12 +22,6 @@
   "devDependencies": {
     "@types/hubs": "workspace:."
   },
-  "author": "Manuel Martin",
-  "owners": [
-    {
-      "name": "Manuel Martin",
-      "githubUsername": "keianhzo"
-    }
-  ],
+  "author": "Manuel Martin (Original Author), Hubs Foundation (Current Maintainer)",
   "license": "MPL-2.0"
 }
